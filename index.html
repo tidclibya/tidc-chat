@@ -3,69 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دليل السياحة في ليبيا</title>
+    <title>وزارة السياحة والصناعات التقليدية - مركز المعلومات والتوثيق السياحي</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇱🇾</text></svg>">
+    <link rel="icon" type="image/x-icon" href="https://github.com/tidclibya/tidc-chat/blob/main/logo.png?raw=true">
 </head>
 <body>
-    <!-- رأس الصفحة -->
+    <!-- الرأس العلوي -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-text">
+                    <i class="fas fa-building"></i> وزارة السياحة والصناعات التقليدية
+                    <span class="separator">|</span>
+                    <i class="fas fa-info-circle"></i> مركز المعلومات والتوثيق السياحي
+                </div>
+                <div class="top-bar-date">
+                    <i class="fas fa-calendar-alt"></i> <span id="current-date"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- رأس الصفحة الرئيسي -->
     <header class="header">
         <div class="container">
-            <div class="logo">
-                <h1><i class="fas fa-map-marked-alt"></i> دليل السياحة في ليبيا</h1>
-                <p>استكشف أجمل المدن والمعالم السياحية في ليبيا</p>
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="https://github.com/tidclibya/tidc-chat/blob/main/logo.png?raw=true" alt="شعار وزارة السياحة والصناعات التقليدية" class="ministry-logo">
+                    <div class="header-titles">
+                        <h1>وزارة السياحة والصناعات التقليدية</h1>
+                        <h2>مركز المعلومات والتوثيق السياحي</h2>
+                        <p>دليل المعلومات السياحية في ليبيا</p>
+                    </div>
+                    <img src="https://github.com/tidclibya/tidc-chat/blob/main/logo.png?raw=true" alt="شعار مركز المعلومات والتوثيق السياحي" class="center-logo">
+                </div>
+                
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#home" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+                        <li><a href="#cities"><i class="fas fa-city"></i> المدن السياحية</a></li>
+                        <li><a href="#topics"><i class="fas fa-list"></i> المواضيع</a></li>
+                        <li><a href="#search"><i class="fas fa-search"></i> البحث</a></li>
+                        <li><a href="#services"><i class="fas fa-concierge-bell"></i> خدماتنا</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> حول المركز</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#home" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
-                    <li><a href="#cities"><i class="fas fa-city"></i> المدن</a></li>
-                    <li><a href="#topics"><i class="fas fa-list"></i> المواضيع</a></li>
-                    <li><a href="#search"><i class="fas fa-search"></i> البحث</a></li>
-                    <li><a href="#about"><i class="fas fa-info-circle"></i> حول الدليل</a></li>
-                </ul>
-            </nav>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
     </header>
 
-    <!-- قسم الترحاب -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>مرحباً بكم في ليبيا</h2>
-                <p>بلد الثقافة والتاريخ والطبيعة الساحرة</p>
-                <p>اكتشفوا معنا أهم المدن السياحية الليبية ومعلومات مفيدة للزوار</p>
-                <button class="btn-primary" id="exploreBtn">
-                    ابدأ الرحلة <i class="fas fa-plane-departure"></i>
-                </button>
+    <!-- بانر دعائي -->
+    <section class="banner">
+        <div class="banner-content">
+            <img src="https://github.com/tidclibya/tidc-chat/blob/main/paner.jpg?raw=true" alt="بانر دعائي ليبيا - وجهة سياحية رائعة" class="banner-image">
+            <div class="banner-overlay">
+                <div class="container">
+                    <h2>ليبيا.. تاريخ عريق وطبيعة ساحرة</h2>
+                    <p>استكشفوا كنوز ليبيا السياحية مع دليل المعلومات والتوثيق الشامل</p>
+                    <button class="btn-gold" id="exploreBtn">
+                        ابدأ رحلتك السياحية <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
             </div>
-            <div class="hero-image">
-                <div class="image-placeholder">
-                    <i class="fas fa-globe-africa"></i>
+        </div>
+    </section>
+
+    <!-- قسم الترحاب -->
+    <section id="home" class="section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-star-of-life"></i> مرحباً بكم في الدليل السياحي الليبي</h2>
+            <p class="section-subtitle">معلومات موثقة وشاملة عن السياحة في ليبيا</p>
+            
+            <div class="welcome-cards">
+                <div class="welcome-card">
+                    <div class="welcome-icon blue-bg">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>دليل المدن السياحية</h3>
+                    <p>استكشف أهم المدن الليبية ومعالمها السياحية والتاريخية</p>
+                </div>
+                
+                <div class="welcome-card">
+                    <div class="welcome-icon gold-bg">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>معلومات موثقة</h3>
+                    <p>بيانات دقيقة وحديثة مقدمة من مركز المعلومات والتوثيق السياحي</p>
+                </div>
+                
+                <div class="welcome-card">
+                    <div class="welcome-icon blue-bg">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>خدمات سياحية</h3>
+                    <p>دليل شامل للفنادق والمطاعم ووسائل النقل والخدمات السياحية</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- قسم المدن -->
-    <section id="cities" class="section">
+    <section id="cities" class="section bg-snow">
         <div class="container">
-            <h2 class="section-title"><i class="fas fa-city"></i> المدن السياحية</h2>
-            <p class="section-subtitle">اختر مدينة لاستكشاف معلوماتها السياحية</p>
+            <h2 class="section-title"><i class="fas fa-city"></i> المدن السياحية في ليبيا</h2>
+            <p class="section-subtitle">اكتشفوا أجمل المدن الليبية وكنوزها السياحية</p>
             
             <div class="filters">
                 <div class="filter-group">
-                    <label for="cityFilter"><i class="fas fa-filter"></i> تصفية المدن:</label>
-                    <input type="text" id="cityFilter" placeholder="ابحث عن مدينة...">
+                    <label for="cityFilter"><i class="fas fa-filter"></i> بحث في المدن:</label>
+                    <input type="text" id="cityFilter" placeholder="اكتب اسم المدينة...">
                 </div>
                 <div class="filter-group">
                     <button class="btn-filter active" data-filter="all">الكل</button>
                     <button class="btn-filter" data-filter="popular">الأكثر زيارة</button>
                     <button class="btn-filter" data-filter="historical">تاريخية</button>
+                    <button class="btn-filter" data-filter="coastal">ساحلية</button>
                 </div>
             </div>
             
@@ -76,10 +133,10 @@
     </section>
 
     <!-- قسم المواضيع -->
-    <section id="topics" class="section bg-light">
+    <section id="topics" class="section">
         <div class="container">
             <h2 class="section-title"><i class="fas fa-list"></i> المواضيع السياحية</h2>
-            <p class="section-subtitle">تصفح المعلومات حسب الموضوع</p>
+            <p class="section-subtitle">تصفح المعلومات حسب الموضوع والخدمة</p>
             
             <div class="topics-grid" id="topicsContainer">
                 <!-- سيتم تعبئة المواضيع بواسطة JavaScript -->
@@ -88,36 +145,85 @@
     </section>
 
     <!-- قسم البحث -->
-    <section id="search" class="section">
+    <section id="search" class="section bg-snow">
         <div class="container">
             <h2 class="section-title"><i class="fas fa-search"></i> البحث في الدليل</h2>
-            <p class="section-subtitle">ابحث عن معلومات محددة حول السياحة في ليبيا</p>
+            <p class="section-subtitle">ابحث عن معلومات محددة في قاعدة بياناتنا الشاملة</p>
             
             <div class="search-container">
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="ابحث عن فندق، مطعم، معلم سياحي...">
-                    <button id="searchBtn"><i class="fas fa-search"></i> بحث</button>
+                    <input type="text" id="searchInput" placeholder="ابحث عن فندق، معلم سياحي، مطعم، خدمة نقل...">
+                    <button id="searchBtn" class="btn-blue"><i class="fas fa-search"></i> بحث</button>
                 </div>
                 <div class="search-options">
                     <div class="search-option">
                         <input type="checkbox" id="searchAr" checked>
-                        <label for="searchAr">البحث بالعربية</label>
+                        <label for="searchAr">البحث باللغة العربية</label>
                     </div>
                     <div class="search-option">
                         <input type="checkbox" id="searchEn">
-                        <label for="searchEn">البحث بالإنجليزية</label>
+                        <label for="searchEn">البحث باللغة الإنجليزية</label>
+                    </div>
+                    <div class="search-option">
+                        <input type="checkbox" id="searchAllCities" checked>
+                        <label for="searchAllCities">بحث في جميع المدن</label>
                     </div>
                 </div>
             </div>
             
             <div class="search-results" id="searchResults">
-                <!-- سيتم عرض نتائج البحث هنا -->
+                <div class="no-results">
+                    <i class="fas fa-search"></i>
+                    <h3>مرحباً بك في محرك البحث</h3>
+                    <p>اكتب كلمة البحث في المربع أعلاه للعثور على المعلومات السياحية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم خدماتنا -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-concierge-bell"></i> خدمات مركز المعلومات والتوثيق السياحي</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon blue-bg">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>قاعدة بيانات سياحية</h3>
+                    <p>نوفر قاعدة بيانات شاملة ومحدثة للمعلومات السياحية في ليبيا</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon gold-bg">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>توثيق المعلومات</h3>
+                    <p>توثيق دقيق للمواقع والمعالم السياحية والتراث الثقافي الليبي</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon blue-bg">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>إحصائيات وأبحاث</h3>
+                    <p>إعداد الدراسات والإحصائيات السياحية لدعم القرارات التطويرية</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon gold-bg">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>نشر المعلومات</h3>
+                    <p>نشر المعلومات السياحية عبر قنوات متعددة للزوار والباحثين</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- قسم عرض الأسئلة -->
-    <section id="questions" class="section bg-light" style="display: none;">
+    <section id="questions" class="section bg-snow" style="display: none;">
         <div class="container">
             <button class="btn-back" id="backToCities">
                 <i class="fas fa-arrow-right"></i> العودة إلى المدن
@@ -132,57 +238,49 @@
         </div>
     </section>
 
-    <!-- قسم حول الدليل -->
+    <!-- قسم حول المركز -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title"><i class="fas fa-info-circle"></i> حول دليل السياحة الليبية</h2>
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> حول مركز المعلومات والتوثيق السياحي</h2>
             
             <div class="about-content">
                 <div class="about-text">
-                    <h3>معلومات عن المشروع</h3>
-                    <p>دليل السياحة الليبية هو تطبيق ويب تفاعلي يهدف إلى توفير معلومات شاملة ومفيدة للزوار والراغبين في استكشاف ليبيا.</p>
-                    <p>يحتوي الدليل على معلومات حول الفنادق، المطاعم، المعالم السياحية، النقل، الاتصالات، التأشيرات، الثقافة، التسوق، الأمن، ونصائح السفر لعدد من المدن الليبية الرئيسية.</p>
+                    <h3>الرؤية والرسالة</h3>
+                    <p>نعمل في مركز المعلومات والتوثيق السياحي على توفير المعلومات السياحية الدقيقة والموثقة، وتقديمها للزوار والباحثين والمهتمين بالسياحة الليبية، بهدف تعزيز الصناعة السياحية ودعم اتخاذ القرارات التطويرية.</p>
                     
-                    <h3>المدن المدرجة</h3>
+                    <h3>أهداف المركز</h3>
                     <ul>
-                        <li>طرابلس</li>
-                        <li>بنغازي</li>
-                        <li>صبراتة</li>
-                        <li>لبدة الأثرية (Leptis Magna)</li>
-                        <li>غدامس</li>
-                        <li>شحات</li>
+                        <li>إنشاء قاعدة بيانات شاملة للمعلومات السياحية في ليبيا</li>
+                        <li>توثيق المواقع والمعالم السياحية والتراثية</li>
+                        <li>توفير المعلومات الداعمة لصناعة القرار السياحي</li>
+                        <li>نشر الثقافة السياحية وتعزيز الوعي بأهمية السياحة</li>
+                        <li>دعم الدراسات والأبحاث في مجال السياحة</li>
                     </ul>
                     
-                    <h3>الميزات</h3>
-                    <ul>
-                        <li>واجهة باللغة العربية</li>
-                        <li>تصميم متجاوب يعمل على جميع الأجهزة</li>
-                        <li>بحث متقدم في المحتوى</li>
-                        <li>تصفية وترتيب المدن والمواضيع</li>
-                        <li>عرض معلومات مفصلة لكل مدينة وموضوع</li>
-                    </ul>
+                    <h3>المديرية العامة</h3>
+                    <p>يتبع مركز المعلومات والتوثيق السياحي لوزارة السياحة والصناعات التقليدية، ويعمل تحت إشراف المديرية العامة للمعلومات والتوثيق السياحي.</p>
                 </div>
                 
                 <div class="about-stats">
                     <h3>إحصائيات الدليل</h3>
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-icon"><i class="fas fa-city"></i></div>
+                            <div class="stat-icon blue-bg"><i class="fas fa-city"></i></div>
                             <div class="stat-number" id="statCities">6</div>
                             <div class="stat-label">مدينة</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-icon"><i class="fas fa-list"></i></div>
+                            <div class="stat-icon gold-bg"><i class="fas fa-list"></i></div>
                             <div class="stat-number" id="statTopics">10</div>
                             <div class="stat-label">موضوع</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-icon"><i class="fas fa-question-circle"></i></div>
+                            <div class="stat-icon blue-bg"><i class="fas fa-question-circle"></i></div>
                             <div class="stat-number" id="statQuestions">240</div>
                             <div class="stat-label">سؤال</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-icon"><i class="fas fa-link"></i></div>
+                            <div class="stat-icon gold-bg"><i class="fas fa-link"></i></div>
                             <div class="stat-number" id="statLinks">720</div>
                             <div class="stat-label">رابط مفيد</div>
                         </div>
@@ -194,41 +292,65 @@
 
     <!-- تذييل الصفحة -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>دليل السياحة في ليبيا</h3>
-                    <p>مصدر موثوق للمعلومات السياحية عن ليبيا</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-logo">
+                    <img src="https://github.com/tidclibya/tidc-chat/blob/main/logo.png?raw=true" alt="شعار وزارة السياحة والصناعات التقليدية">
+                    <div class="footer-titles">
+                        <h3>وزارة السياحة والصناعات التقليدية</h3>
+                        <h4>مركز المعلومات والتوثيق السياحي</h4>
                     </div>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>روابط سريعة</h3>
-                    <ul>
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#cities">المدن</a></li>
-                        <li><a href="#topics">المواضيع</a></li>
-                        <li><a href="#search">البحث</a></li>
-                        <li><a href="#about">حول الدليل</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>اتصل بنا</h3>
-                    <p><i class="fas fa-envelope"></i> info@libya-tourism.ly</p>
-                    <p><i class="fas fa-phone"></i> +218-91-1234567</p>
-                    <p><i class="fas fa-map-marker-alt"></i> طرابلس، ليبيا</p>
+            </div>
+        </div>
+        
+        <div class="footer-middle">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>روابط سريعة</h3>
+                        <ul>
+                            <li><a href="#home"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
+                            <li><a href="#cities"><i class="fas fa-arrow-left"></i> المدن السياحية</a></li>
+                            <li><a href="#topics"><i class="fas fa-arrow-left"></i> المواضيع</a></li>
+                            <li><a href="#search"><i class="fas fa-arrow-left"></i> البحث</a></li>
+                            <li><a href="#services"><i class="fas fa-arrow-left"></i> خدماتنا</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>اتصل بنا</h3>
+                        <p><i class="fas fa-map-marker-alt gold"></i> طرابلس، ليبيا</p>
+                        <p><i class="fas fa-phone gold"></i> 021-4444444</p>
+                        <p><i class="fas fa-envelope gold"></i> info@tourism.gov.ly</p>
+                        <p><i class="fas fa-globe gold"></i> www.tourism.gov.ly</p>
+                        
+                        <div class="social-icons">
+                            <a href="#" class="social-icon blue-bg"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon blue-bg"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon gold-bg"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-icon gold-bg"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>مواقع مفيدة</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-arrow-left"></i> الهيئة العامة للسياحة</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-left"></i> المركز الوطني للتوثيق</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-left"></i> مكتبة السياحة الليبية</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-left"></i> دليل الصناعات التقليدية</a></li>
+                            <li><a href="#"><i class="fas fa-arrow-left"></i> مواقع التراث العالمي</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>© 2023 دليل السياحة في ليبيا. جميع الحقوق محفوظة.</p>
-                <p>تم التطوير باستخدام HTML، CSS، وJavaScript</p>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>تصميم وبرمجة مركز المعلومات والتوثيق السياحي © 2026</p>
+                <p>جميع الحقوق محفوظة لوزارة السياحة والصناعات التقليدية - ليبيا</p>
             </div>
         </div>
     </footer>
@@ -247,18 +369,22 @@
                 </div>
                 
                 <div class="modal-tab-content active" id="tabAr">
-                    <h4>الإجابة:</h4>
+                    <h4><i class="fas fa-info-circle blue"></i> الإجابة:</h4>
                     <p id="modalAnswerAr"></p>
                 </div>
                 
                 <div class="modal-tab-content" id="tabEn">
-                    <h4>Answer:</h4>
+                    <h4><i class="fas fa-info-circle blue"></i> Answer:</h4>
                     <p id="modalAnswerEn"></p>
                 </div>
                 
                 <div class="modal-links">
-                    <h4><i class="fas fa-external-link-alt"></i> روابط مفيدة:</h4>
+                    <h4><i class="fas fa-external-link-alt gold"></i> روابط مفيدة:</h4>
                     <div class="links-list" id="modalLinks"></div>
+                </div>
+                
+                <div class="modal-source">
+                    <p><i class="fas fa-shield-alt"></i> مصدر المعلومات: مركز المعلومات والتوثيق السياحي - وزارة السياحة والصناعات التقليدية</p>
                 </div>
             </div>
         </div>
