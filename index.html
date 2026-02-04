@@ -3,126 +3,1250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وزارة السياحة والصناعات التقليدية - مركز المعلومات والتوثيق السياحي</title>
+    <title>دليل السياحة في ليبيا</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="https://github.com/tidclibya/tidc-chat/blob/main/logo.png?raw=true">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* أنماط CSS */
+        :root {
+            --primary-blue: #1a365d;
+            --secondary-blue: #2c5282;
+            --light-blue: #edf2f7;
+            --gold: #d4af37;
+            --light-gold: #f7ef8a;
+            --dark-text: #2d3748;
+            --medium-text: #4a5568;
+            --light-text: #718096;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background-color: #f8fafc;
+            color: var(--dark-text);
+            line-height: 1.7;
+            direction: rtl;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title i {
+            color: var(--gold);
+            margin-left: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--gold));
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--medium-text);
+            font-size: 1.2rem;
+        }
+        
+        .bg-light {
+            background-color: var(--light-blue);
+        }
+        
+        /* رأس الصفحة */
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(26, 54, 93, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .logo h1 i {
+            color: var(--gold);
+            margin-left: 10px;
+        }
+        
+        .logo p {
+            color: #cbd5e0;
+            font-size: 0.9rem;
+        }
+        
+        .nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav ul li {
+            margin-right: 25px;
+        }
+        
+        .nav ul li:last-child {
+            margin-right: 0;
+        }
+        
+        .nav ul li a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav ul li a i {
+            margin-left: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .nav ul li a:hover, .nav ul li a.active {
+            color: var(--primary-blue);
+            background-color: var(--gold);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: var(--gold);
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 6px;
+            padding: 12px 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        /* قسم الترحيب */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(44, 82, 130, 0.9));
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(212, 175, 55, 0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-left: 40px;
+        }
+        
+        .hero-content h2 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: white;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: #e2e8f0;
+            max-width: 600px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, var(--gold), var(--light-gold));
+            color: var(--primary-blue);
+            border: none;
+            padding: 16px 35px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+            margin-top: 20px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+        }
+        
+        .btn-primary i {
+            margin-right: 12px;
+            font-size: 1.3rem;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .image-placeholder {
+            width: 320px;
+            height: 320px;
+            background: rgba(212, 175, 55, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 12px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .image-placeholder i {
+            font-size: 9rem;
+            color: var(--gold);
+        }
+        
+        /* قسم المدن */
+        .filters {
+            background-color: white;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .filter-group label {
+            margin-left: 15px;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+        
+        .filter-group label i {
+            color: var(--gold);
+            margin-left: 5px;
+        }
+        
+        #cityFilter {
+            padding: 14px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 280px;
+            transition: all 0.3s;
+        }
+        
+        #cityFilter:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        
+        .btn-filter {
+            padding: 12px 24px;
+            margin-right: 12px;
+            background-color: var(--light-blue);
+            color: var(--medium-text);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-filter:hover {
+            background-color: #e2e8f0;
+        }
+        
+        .btn-filter.active {
+            background: linear-gradient(to right, var(--secondary-blue), var(--primary-blue));
+            color: white;
+            box-shadow: 0 4px 12px rgba(26, 54, 93, 0.2);
+        }
+        
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .city-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--gold);
+        }
+        
+        .city-card-header {
+            height: 200px;
+            background: linear-gradient(to right, var(--secondary-blue), var(--primary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .city-card-header i {
+            font-size: 4.5rem;
+            color: var(--gold);
+        }
+        
+        .city-card-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--gold);
+            color: var(--primary-blue);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 800;
+        }
+        
+        .city-card-body {
+            padding: 30px;
+        }
+        
+        .city-card-body h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: var(--primary-blue);
+        }
+        
+        .city-card-body p {
+            color: var(--light-text);
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .city-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .city-stat {
+            text-align: center;
+        }
+        
+        .city-stat i {
+            font-size: 1.6rem;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+        
+        .city-stat .number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark-text);
+        }
+        
+        .city-stat .label {
+            font-size: 0.85rem;
+            color: var(--light-text);
+        }
+        
+        /* قسم المواضيع */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        
+        .topic-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
+            border-color: var(--gold);
+        }
+        
+        .topic-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #ebf8ff, #bee3f8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            border: 3px solid var(--gold);
+        }
+        
+        .topic-icon i {
+            font-size: 2.8rem;
+            color: var(--secondary-blue);
+        }
+        
+        .topic-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+        
+        .topic-card p {
+            color: var(--light-text);
+            font-size: 1rem;
+        }
+        
+        /* قسم البحث */
+        .search-container {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .search-box {
+            display: flex;
+            margin-bottom: 25px;
+        }
+        
+        #searchInput {
+            flex: 1;
+            padding: 18px 25px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px 0 0 10px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        #searchInput:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+        }
+        
+        #searchBtn {
+            background: linear-gradient(to right, var(--secondary-blue), var(--primary-blue));
+            color: white;
+            border: none;
+            padding: 0 35px;
+            border-radius: 0 10px 10px 0;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        #searchBtn:hover {
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+        }
+        
+        #searchBtn i {
+            margin-left: 12px;
+            font-size: 1.3rem;
+        }
+        
+        .search-options {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .search-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-option input {
+            margin-left: 12px;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--gold);
+        }
+        
+        .search-option label {
+            color: var(--medium-text);
+            font-weight: 700;
+        }
+        
+        .search-results {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .no-results {
+            text-align: center;
+            color: var(--light-text);
+        }
+        
+        .no-results i {
+            font-size: 3.5rem;
+            color: #cbd5e0;
+            margin-bottom: 20px;
+        }
+        
+        /* قسم الأسئلة */
+        .btn-back {
+            background: linear-gradient(to right, var(--secondary-blue), var(--primary-blue));
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(26, 54, 93, 0.2);
+        }
+        
+        .btn-back:hover {
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            transform: translateX(-5px);
+        }
+        
+        .btn-back i {
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        
+        .questions-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .question-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            border-color: var(--gold);
+        }
+        
+        .question-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+        }
+        
+        .question-card h3 i {
+            color: var(--gold);
+            margin-left: 12px;
+            font-size: 1.3rem;
+        }
+        
+        .question-card p {
+            color: var(--light-text);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        
+        .question-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .question-tag {
+            background-color: #ebf8ff;
+            color: var(--secondary-blue);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        
+        /* قسم حول الدليل */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--gold);
+        }
+        
+        .about-text p {
+            margin-bottom: 30px;
+            color: var(--medium-text);
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+        
+        .about-text ul {
+            margin-right: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .about-text ul li {
+            margin-bottom: 12px;
+            color: var(--medium-text);
+            position: relative;
+            padding-right: 25px;
+            font-size: 1.05rem;
+        }
+        
+        .about-text ul li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 12px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--gold);
+            border-radius: 50%;
+        }
+        
+        .about-stats h3 {
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            color: var(--primary-blue);
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--gold);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            border-color: var(--gold);
+        }
+        
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ebf8ff, #bee3f8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 3px solid var(--gold);
+        }
+        
+        .stat-icon i {
+            font-size: 2rem;
+            color: var(--secondary-blue);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+        
+        /* تذييل الصفحة */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--gold);
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .footer-section p {
+            color: #cbd5e0;
+            margin-bottom: 20px;
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 18px;
+            margin-top: 25px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--gold);
+            border-radius: 50%;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--gold);
+            color: var(--primary-blue);
+            transform: translateY(-5px);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-section ul li a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 1.05rem;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--gold);
+            transform: translateX(-8px);
+        }
+        
+        .footer-section i {
+            color: var(--gold);
+            margin-left: 12px;
+            width: 22px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .footer-bottom p {
+            color: #a0aec0;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        /* نافذة عرض السؤال */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 850px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.4s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 30px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h3 {
+            font-size: 1.8rem;
+            color: white;
+            line-height: 1.4;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            line-height: 1;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .modal-close:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 35px;
+        }
+        
+        .modal-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #e2e8f0;
+        }
+        
+        .modal-tab {
+            background: none;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--light-text);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .modal-tab.active {
+            color: var(--primary-blue);
+        }
+        
+        .modal-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--gold);
+        }
+        
+        .modal-tab-content {
+            display: none;
+            margin-bottom: 35px;
+        }
+        
+        .modal-tab-content.active {
+            display: block;
+        }
+        
+        .modal-tab-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+        
+        .modal-tab-content p {
+            color: var(--medium-text);
+            line-height: 1.9;
+            font-size: 1.1rem;
+        }
+        
+        .modal-links h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+        }
+        
+        .modal-links h4 i {
+            color: var(--gold);
+            margin-left: 12px;
+            font-size: 1.4rem;
+        }
+        
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #f7fafc;
+            border-radius: 10px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--medium-text);
+            border-right: 5px solid var(--gold);
+        }
+        
+        .link-item:hover {
+            background-color: #edf2f7;
+            transform: translateX(-8px);
+            color: var(--primary-blue);
+        }
+        
+        .link-item i {
+            color: var(--gold);
+            margin-left: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* التجاوبية */
+        @media (max-width: 1100px) {
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content {
+                padding-left: 0;
+                margin-bottom: 60px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .filters {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .filter-group {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            #cityFilter {
+                width: 100%;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            #searchInput {
+                border-radius: 10px;
+                margin-bottom: 20px;
+            }
+            
+            #searchBtn {
+                border-radius: 10px;
+                padding: 18px;
+                justify-content: center;
+            }
+            
+            .questions-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .cities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .topics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 650px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-tabs {
+                flex-direction: column;
+            }
+            
+            .modal-tab {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .modal-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .modal-header h3 {
+                margin-bottom: 20px;
+            }
+            
+            .image-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .image-placeholder i {
+                font-size: 6rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            
+            .btn-primary {
+                padding: 14px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .city-card-header {
+                height: 170px;
+            }
+            
+            .city-card-body {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- الرأس العلوي -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <div class="top-bar-text">
-                    <i class="fas fa-building"></i> وزارة السياحة والصناعات التقليدية
-                    <span class="separator">|</span>
-                    <i class="fas fa-info-circle"></i> مركز المعلومات والتوثيق السياحي
-                </div>
-                <div class="top-bar-date">
-                    <i class="fas fa-calendar-alt"></i> <span id="current-date"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- رأس الصفحة الرئيسي -->
+    <!-- رأس الصفحة -->
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <div class="logo-section">
-                    <img src="https://github.com/tidclibya/tidc-chat/blob/main/logo.png?raw=true" alt="شعار وزارة السياحة والصناعات التقليدية" class="ministry-logo">
-                    <div class="header-titles">
-                        <h1>وزارة السياحة والصناعات التقليدية</h1>
-                        <h2>مركز المعلومات والتوثيق السياحي</h2>
-                        <p>دليل المعلومات السياحية في ليبيا</p>
-                    </div>
-                    <img src="https://github.com/tidclibya/tidc-chat/blob/main/logo.png?raw=true" alt="شعار مركز المعلومات والتوثيق السياحي" class="center-logo">
-                </div>
-                
-                <nav class="nav">
-                    <ul>
-                        <li><a href="#home" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
-                        <li><a href="#cities"><i class="fas fa-city"></i> المدن السياحية</a></li>
-                        <li><a href="#topics"><i class="fas fa-list"></i> المواضيع</a></li>
-                        <li><a href="#search"><i class="fas fa-search"></i> البحث</a></li>
-                        <li><a href="#services"><i class="fas fa-concierge-bell"></i> خدماتنا</a></li>
-                        <li><a href="#about"><i class="fas fa-info-circle"></i> حول المركز</a></li>
-                    </ul>
-                </nav>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
+            <div class="logo">
+                <h1><i class="fas fa-map-marked-alt"></i> دليل السياحة في ليبيا</h1>
+                <p>استكشف أجمل المدن والمعالم السياحية في ليبيا</p>
             </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="#cities"><i class="fas fa-city"></i> المدن</a></li>
+                    <li><a href="#topics"><i class="fas fa-list"></i> المواضيع</a></li>
+                    <li><a href="#search"><i class="fas fa-search"></i> البحث</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> حول الدليل</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
-    <!-- بانر دعائي -->
-    <section class="banner">
-        <div class="banner-content">
-            <img src="https://github.com/tidclibya/tidc-chat/blob/main/paner.jpg?raw=true" alt="بانر دعائي ليبيا - وجهة سياحية رائعة" class="banner-image">
-            <div class="banner-overlay">
-                <div class="container">
-                    <h2>ليبيا.. تاريخ عريق وطبيعة ساحرة</h2>
-                    <p>استكشفوا كنوز ليبيا السياحية مع دليل المعلومات والتوثيق الشامل</p>
-                    <button class="btn-gold" id="exploreBtn">
-                        ابدأ رحلتك السياحية <i class="fas fa-arrow-left"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- قسم الترحاب -->
-    <section id="home" class="section">
+    <section id="home" class="hero">
         <div class="container">
-            <h2 class="section-title"><i class="fas fa-star-of-life"></i> مرحباً بكم في الدليل السياحي الليبي</h2>
-            <p class="section-subtitle">معلومات موثقة وشاملة عن السياحة في ليبيا</p>
-            
-            <div class="welcome-cards">
-                <div class="welcome-card">
-                    <div class="welcome-icon blue-bg">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3>دليل المدن السياحية</h3>
-                    <p>استكشف أهم المدن الليبية ومعالمها السياحية والتاريخية</p>
-                </div>
-                
-                <div class="welcome-card">
-                    <div class="welcome-icon gold-bg">
-                        <i class="fas fa-info-circle"></i>
-                    </div>
-                    <h3>معلومات موثقة</h3>
-                    <p>بيانات دقيقة وحديثة مقدمة من مركز المعلومات والتوثيق السياحي</p>
-                </div>
-                
-                <div class="welcome-card">
-                    <div class="welcome-icon blue-bg">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>خدمات سياحية</h3>
-                    <p>دليل شامل للفنادق والمطاعم ووسائل النقل والخدمات السياحية</p>
+            <div class="hero-content">
+                <h2>مرحباً بكم في ليبيا</h2>
+                <p>بلد الثقافة والتاريخ والطبيعة الساحرة</p>
+                <p>اكتشفوا معنا أهم المدن السياحية الليبية ومعلومات مفيدة للزوار</p>
+                <button class="btn-primary" id="exploreBtn">
+                    ابدأ الرحلة <i class="fas fa-plane-departure"></i>
+                </button>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <i class="fas fa-globe-africa"></i>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- قسم المدن -->
-    <section id="cities" class="section bg-snow">
+    <section id="cities" class="section">
         <div class="container">
-            <h2 class="section-title"><i class="fas fa-city"></i> المدن السياحية في ليبيا</h2>
-            <p class="section-subtitle">اكتشفوا أجمل المدن الليبية وكنوزها السياحية</p>
+            <h2 class="section-title"><i class="fas fa-city"></i> المدن السياحية</h2>
+            <p class="section-subtitle">اختر مدينة لاستكشاف معلوماتها السياحية</p>
             
             <div class="filters">
                 <div class="filter-group">
-                    <label for="cityFilter"><i class="fas fa-filter"></i> بحث في المدن:</label>
-                    <input type="text" id="cityFilter" placeholder="اكتب اسم المدينة...">
+                    <label for="cityFilter"><i class="fas fa-filter"></i> تصفية المدن:</label>
+                    <input type="text" id="cityFilter" placeholder="ابحث عن مدينة...">
                 </div>
                 <div class="filter-group">
                     <button class="btn-filter active" data-filter="all">الكل</button>
                     <button class="btn-filter" data-filter="popular">الأكثر زيارة</button>
                     <button class="btn-filter" data-filter="historical">تاريخية</button>
-                    <button class="btn-filter" data-filter="coastal">ساحلية</button>
                 </div>
             </div>
             
@@ -133,10 +1257,10 @@
     </section>
 
     <!-- قسم المواضيع -->
-    <section id="topics" class="section">
+    <section id="topics" class="section bg-light">
         <div class="container">
             <h2 class="section-title"><i class="fas fa-list"></i> المواضيع السياحية</h2>
-            <p class="section-subtitle">تصفح المعلومات حسب الموضوع والخدمة</p>
+            <p class="section-subtitle">تصفح المعلومات حسب الموضوع</p>
             
             <div class="topics-grid" id="topicsContainer">
                 <!-- سيتم تعبئة المواضيع بواسطة JavaScript -->
@@ -145,28 +1269,24 @@
     </section>
 
     <!-- قسم البحث -->
-    <section id="search" class="section bg-snow">
+    <section id="search" class="section">
         <div class="container">
             <h2 class="section-title"><i class="fas fa-search"></i> البحث في الدليل</h2>
-            <p class="section-subtitle">ابحث عن معلومات محددة في قاعدة بياناتنا الشاملة</p>
+            <p class="section-subtitle">ابحث عن معلومات محددة حول السياحة في ليبيا</p>
             
             <div class="search-container">
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="ابحث عن فندق، معلم سياحي، مطعم، خدمة نقل...">
-                    <button id="searchBtn" class="btn-blue"><i class="fas fa-search"></i> بحث</button>
+                    <input type="text" id="searchInput" placeholder="ابحث عن فندق، مطعم، معلم سياحي...">
+                    <button id="searchBtn"><i class="fas fa-search"></i> بحث</button>
                 </div>
                 <div class="search-options">
                     <div class="search-option">
                         <input type="checkbox" id="searchAr" checked>
-                        <label for="searchAr">البحث باللغة العربية</label>
+                        <label for="searchAr">البحث بالعربية</label>
                     </div>
                     <div class="search-option">
                         <input type="checkbox" id="searchEn">
-                        <label for="searchEn">البحث باللغة الإنجليزية</label>
-                    </div>
-                    <div class="search-option">
-                        <input type="checkbox" id="searchAllCities" checked>
-                        <label for="searchAllCities">بحث في جميع المدن</label>
+                        <label for="searchEn">البحث بالإنجليزية</label>
                     </div>
                 </div>
             </div>
@@ -174,56 +1294,14 @@
             <div class="search-results" id="searchResults">
                 <div class="no-results">
                     <i class="fas fa-search"></i>
-                    <h3>مرحباً بك في محرك البحث</h3>
-                    <p>اكتب كلمة البحث في المربع أعلاه للعثور على المعلومات السياحية</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم خدماتنا -->
-    <section id="services" class="section">
-        <div class="container">
-            <h2 class="section-title"><i class="fas fa-concierge-bell"></i> خدمات مركز المعلومات والتوثيق السياحي</h2>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon blue-bg">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>قاعدة بيانات سياحية</h3>
-                    <p>نوفر قاعدة بيانات شاملة ومحدثة للمعلومات السياحية في ليبيا</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon gold-bg">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>توثيق المعلومات</h3>
-                    <p>توثيق دقيق للمواقع والمعالم السياحية والتراث الثقافي الليبي</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon blue-bg">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>إحصائيات وأبحاث</h3>
-                    <p>إعداد الدراسات والإحصائيات السياحية لدعم القرارات التطويرية</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon gold-bg">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>نشر المعلومات</h3>
-                    <p>نشر المعلومات السياحية عبر قنوات متعددة للزوار والباحثين</p>
+                    <p>استخدم شريط البحث للعثور على المعلومات السياحية</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- قسم عرض الأسئلة -->
-    <section id="questions" class="section bg-snow" style="display: none;">
+    <section id="questions" class="section bg-light" style="display: none;">
         <div class="container">
             <button class="btn-back" id="backToCities">
                 <i class="fas fa-arrow-right"></i> العودة إلى المدن
@@ -238,49 +1316,57 @@
         </div>
     </section>
 
-    <!-- قسم حول المركز -->
+    <!-- قسم حول الدليل -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title"><i class="fas fa-info-circle"></i> حول مركز المعلومات والتوثيق السياحي</h2>
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> حول دليل السياحة الليبية</h2>
             
             <div class="about-content">
                 <div class="about-text">
-                    <h3>الرؤية والرسالة</h3>
-                    <p>نعمل في مركز المعلومات والتوثيق السياحي على توفير المعلومات السياحية الدقيقة والموثقة، وتقديمها للزوار والباحثين والمهتمين بالسياحة الليبية، بهدف تعزيز الصناعة السياحية ودعم اتخاذ القرارات التطويرية.</p>
+                    <h3>معلومات عن المشروع</h3>
+                    <p>دليل السياحة الليبية هو تطبيق ويب تفاعلي يهدف إلى توفير معلومات شاملة ومفيدة للزوار والراغبين في استكشاف ليبيا.</p>
+                    <p>يحتوي الدليل على معلومات حول الفنادق، المطاعم، المعالم السياحية، النقل، الاتصالات، التأشيرات، الثقافة، التسوق، الأمن، ونصائح السفر لعدد من المدن الليبية الرئيسية.</p>
                     
-                    <h3>أهداف المركز</h3>
+                    <h3>المدن المدرجة</h3>
                     <ul>
-                        <li>إنشاء قاعدة بيانات شاملة للمعلومات السياحية في ليبيا</li>
-                        <li>توثيق المواقع والمعالم السياحية والتراثية</li>
-                        <li>توفير المعلومات الداعمة لصناعة القرار السياحي</li>
-                        <li>نشر الثقافة السياحية وتعزيز الوعي بأهمية السياحة</li>
-                        <li>دعم الدراسات والأبحاث في مجال السياحة</li>
+                        <li>طرابلس</li>
+                        <li>بنغازي</li>
+                        <li>صبراتة</li>
+                        <li>لبدة الأثرية (Leptis Magna)</li>
+                        <li>غدامس</li>
+                        <li>شحات</li>
                     </ul>
                     
-                    <h3>المديرية العامة</h3>
-                    <p>يتبع مركز المعلومات والتوثيق السياحي لوزارة السياحة والصناعات التقليدية، ويعمل تحت إشراف المديرية العامة للمعلومات والتوثيق السياحي.</p>
+                    <h3>الميزات</h3>
+                    <ul>
+                        <li>واجهة باللغة العربية</li>
+                        <li>تصميم متجاوب يعمل على جميع الأجهزة</li>
+                        <li>بحث متقدم في المحتوى</li>
+                        <li>تصفية وترتيب المدن والمواضيع</li>
+                        <li>عرض معلومات مفصلة لكل مدينة وموضوع</li>
+                    </ul>
                 </div>
                 
                 <div class="about-stats">
                     <h3>إحصائيات الدليل</h3>
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-icon blue-bg"><i class="fas fa-city"></i></div>
+                            <div class="stat-icon"><i class="fas fa-city"></i></div>
                             <div class="stat-number" id="statCities">6</div>
                             <div class="stat-label">مدينة</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-icon gold-bg"><i class="fas fa-list"></i></div>
+                            <div class="stat-icon"><i class="fas fa-list"></i></div>
                             <div class="stat-number" id="statTopics">10</div>
                             <div class="stat-label">موضوع</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-icon blue-bg"><i class="fas fa-question-circle"></i></div>
+                            <div class="stat-icon"><i class="fas fa-question-circle"></i></div>
                             <div class="stat-number" id="statQuestions">240</div>
                             <div class="stat-label">سؤال</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-icon gold-bg"><i class="fas fa-link"></i></div>
+                            <div class="stat-icon"><i class="fas fa-link"></i></div>
                             <div class="stat-number" id="statLinks">720</div>
                             <div class="stat-label">رابط مفيد</div>
                         </div>
@@ -292,64 +1378,41 @@
 
     <!-- تذييل الصفحة -->
     <footer class="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="footer-logo">
-                    <img src="https://github.com/tidclibya/tidc-chat/blob/main/logo.png?raw=true" alt="شعار وزارة السياحة والصناعات التقليدية">
-                    <div class="footer-titles">
-                        <h3>وزارة السياحة والصناعات التقليدية</h3>
-                        <h4>مركز المعلومات والتوثيق السياحي</h4>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>دليل السياحة في ليبيا</h3>
+                    <p>مصدر موثوق للمعلومات السياحية عن ليبيا</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="footer-middle">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h3>روابط سريعة</h3>
-                        <ul>
-                            <li><a href="#home"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
-                            <li><a href="#cities"><i class="fas fa-arrow-left"></i> المدن السياحية</a></li>
-                            <li><a href="#topics"><i class="fas fa-arrow-left"></i> المواضيع</a></li>
-                            <li><a href="#search"><i class="fas fa-arrow-left"></i> البحث</a></li>
-                            <li><a href="#services"><i class="fas fa-arrow-left"></i> خدماتنا</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h3>اتصل بنا</h3>
-                        <p><i class="fas fa-map-marker-alt gold"></i> طرابلس، ليبيا</p>
-                        <p><i class="fas fa-phone gold"></i> 021-4444444</p>
-                        <p><i class="fas fa-envelope gold"></i> info@tourism.gov.ly</p>
-                        <p><i class="fas fa-globe gold"></i> www.tourism.gov.ly</p>
-                        
-                        <div class="social-icons">
-                            <a href="#" class="social-icon blue-bg"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-icon blue-bg"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon gold-bg"><i class="fab fa-youtube"></i></a>
-                            <a href="#" class="social-icon gold-bg"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h3>مواقع مفيدة</h3>
-                        <ul>
-                            <li><a href="#"><i class="fas fa-arrow-left"></i> وزارة السياحة والصناعات التقليدية</a></li>
-                            <li><a href="#"><i class="fas fa-arrow-left"></i> مركز المعلومات والتوثيق السياحي</a></li>
-                            <li><a href="#"><i class="fas fa-arrow-left"></i> دليل الصناعات التقليدية</a></li>
-                            <li><a href="#"><i class="fas fa-arrow-left"></i> مواقع التراث العالمي</a></li>
-                        </ul>
-                    </div>
+                
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#cities">المدن</a></li>
+                        <li><a href="#topics">المواضيع</a></li>
+                        <li><a href="#search">البحث</a></li>
+                        <li><a href="#about">حول الدليل</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>اتصل بنا</h3>
+                    <p><i class="fas fa-envelope"></i> info@libya-tourism.ly</p>
+                    <p><i class="fas fa-phone"></i> +218-91-1234567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> طرابلس، ليبيا</p>
                 </div>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="container">
-                <p>تصميم وبرمجة مركز المعلومات والتوثيق السياحي © 2026</p>
-                <p>جميع الحقوق محفوظة لوزارة السياحة والصناعات التقليدية - ليبيا</p>
+            
+            <div class="footer-bottom">
+                <p>© 2023 دليل السياحة في ليبيا. جميع الحقوق محفوظة.</p>
+                <p>تم التطوير باستخدام HTML، CSS، وJavaScript</p>
             </div>
         </div>
     </footer>
@@ -368,27 +1431,616 @@
                 </div>
                 
                 <div class="modal-tab-content active" id="tabAr">
-                    <h4><i class="fas fa-info-circle blue"></i> الإجابة:</h4>
+                    <h4>الإجابة:</h4>
                     <p id="modalAnswerAr"></p>
                 </div>
                 
                 <div class="modal-tab-content" id="tabEn">
-                    <h4><i class="fas fa-info-circle blue"></i> Answer:</h4>
+                    <h4>Answer:</h4>
                     <p id="modalAnswerEn"></p>
                 </div>
                 
                 <div class="modal-links">
-                    <h4><i class="fas fa-external-link-alt gold"></i> روابط مفيدة:</h4>
+                    <h4><i class="fas fa-external-link-alt"></i> روابط مفيدة:</h4>
                     <div class="links-list" id="modalLinks"></div>
-                </div>
-                
-                <div class="modal-source">
-                    <p><i class="fas fa-shield-alt"></i> مصدر المعلومات: مركز المعلومات والتوثيق السياحي - وزارة السياحة والصناعات التقليدية</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // JavaScript Code
+        document.addEventListener('DOMContentLoaded', function() {
+            // بيانات المدن السياحية
+            const citiesData = [
+                {
+                    id: 1,
+                    name: "طرابلس",
+                    description: "عاصمة ليبيا وأكبر مدنها، تتميز بتاريخها العريق ومعالمها السياحية المتنوعة.",
+                    icon: "fas fa-landmark",
+                    topics: 10,
+                    questions: 40,
+                    filter: "popular",
+                    tag: "العاصمة"
+                },
+                {
+                    id: 2,
+                    name: "بنغازي",
+                    description: "ثاني أكبر مدينة في ليبيا، تشتهر بشواطئها الجميلة وثقافتها المتنوعة.",
+                    icon: "fas fa-umbrella-beach",
+                    topics: 10,
+                    questions: 40,
+                    filter: "popular",
+                    tag: "الساحل"
+                },
+                {
+                    id: 3,
+                    name: "صبراتة",
+                    description: "مدينة تاريخية تضم أحد أهم المواقع الأثرية الرومانية في ليبيا.",
+                    icon: "fas fa-archway",
+                    topics: 10,
+                    questions: 40,
+                    filter: "historical",
+                    tag: "أثري"
+                },
+                {
+                    id: 4,
+                    name: "لبدة الأثرية",
+                    description: "موقع تراث عالمي لليونسكو، كانت مدينة رومانية رئيسية في شمال أفريقيا.",
+                    icon: "fas fa-university",
+                    topics: 10,
+                    questions: 40,
+                    filter: "historical",
+                    tag: "اليونسكو"
+                },
+                {
+                    id: 5,
+                    name: "غدامس",
+                    description: "مدينة واحات قديمة، تعرف باسم "لؤلؤة الصحراء" وتتميز بعمارتها الفريدة.",
+                    icon: "fas fa-mosque",
+                    topics: 10,
+                    questions: 40,
+                    filter: "historical",
+                    tag: "تراثي"
+                },
+                {
+                    id: 6,
+                    name: "شحات",
+                    description: "مدينة تاريخية تضم آثارًا يونانية ورومانية مهمة على ساحل البحر المتوسط.",
+                    icon: "fas fa-history",
+                    topics: 10,
+                    questions: 40,
+                    filter: "historical",
+                    tag: "يوناني"
+                }
+            ];
+            
+            // بيانات المواضيع السياحية
+            const topicsData = [
+                { id: 1, name: "الفنادق", icon: "fas fa-hotel", description: "معلومات عن الفنادق والمنتجعات" },
+                { id: 2, name: "المطاعم", icon: "fas fa-utensils", description: "أشهر المطاعم والمقاهي" },
+                { id: 3, name: "المعالم السياحية", icon: "fas fa-monument", description: "المعالم التاريخية والطبيعية" },
+                { id: 4, name: "النقل", icon: "fas fa-bus", description: "وسائل النقل والمواصلات" },
+                { id: 5, name: "الاتصالات", icon: "fas fa-phone", description: "خدمات الاتصالات والإنترنت" },
+                { id: 6, name: "التأشيرات", icon: "fas fa-passport", description: "متطلبات التأشيرة والدخول" },
+                { id: 7, name: "الثقافة", icon: "fas fa-theater-masks", description: "العادات والتقاليد والمهرجانات" },
+                { id: 8, name: "التسوق", icon: "fas fa-shopping-bag", description: "الأسواق والمراكز التجارية" },
+                { id: 9, name: "الأمن", icon: "fas fa-shield-alt", description: "نصائح أمنية للمسافرين" },
+                { id: 10, name: "نصائح السفر", icon: "fas fa-suitcase-rolling", description: "نصائح وإرشادات عامة" }
+            ];
+            
+            // بيانات الأسئلة (سيتم إنشاؤها ديناميكيًا)
+            const questionsData = [
+                // طرابلس - الفنادق
+                {
+                    id: 1,
+                    cityId: 1,
+                    topicId: 1,
+                    question: "ما هي أفضل الفنادق في طرابلس؟",
+                    answerAr: "تضم طرابلس عدة فنادق ممتازة منها فندق كورنثيا طرابلس (5 نجوم)، فندق الوفاء (4 نجوم)، وفندق الشاطئ (4 نجوم). تقدم هذه الفنادق خدمات عالية الجودة ومواقع استراتيجية بالقرب من المعالم السياحية.",
+                    answerEn: "Tripoli has several excellent hotels including Corinthia Hotel Tripoli (5 stars), Al Waddan Hotel (4 stars), and Al Shati Hotel (4 stars). These hotels offer high-quality services and strategic locations near tourist attractions.",
+                    links: ["موقع فندق كورنثيا", "دليل فنادق طرابلس", "حجوزات الفنادق"]
+                },
+                {
+                    id: 2,
+                    cityId: 1,
+                    topicId: 1,
+                    question: "ما هو متوسط سعر الليلة في فندق في طرابلس؟",
+                    answerAr: "يتراوح سعر الليلة في فنادق طرابلس بين 80-200 دولار للفنادق 3 نجوم، و200-400 دولار للفنادق 4 نجوم، وأكثر من 400 دولار للفنادق 5 نجوم. تختلف الأسعار حسب الموسم ونوع الغرفة.",
+                    answerEn: "The price per night in Tripoli hotels ranges from $80-200 for 3-star hotels, $200-400 for 4-star hotels, and over $400 for 5-star hotels. Prices vary depending on season and room type.",
+                    links: ["أسعار الفنادق", "العروض الموسمية", "مقارنة الأسعار"]
+                },
+                // بنغازي - المطاعم
+                {
+                    id: 21,
+                    cityId: 2,
+                    topicId: 2,
+                    question: "ما هي أفضل المطاعم في بنغازي؟",
+                    answerAr: "تشتهر بنغازي بمطاعمها المميزة مثل مطعم الروشة للمأكولات البحرية، مطعم المنارة للوجبات التقليدية، ومطعم لوران للمأكولات الدولية. تقدم هذه المطاعم أطباقاً ليبية وعالمية بجودة عالية.",
+                    answerEn: "Benghazi is famous for its distinguished restaurants such as Al Rawsha Seafood Restaurant, Al Manara Traditional Cuisine, and Laurant International Cuisine. These restaurants offer Libyan and international dishes with high quality.",
+                    links: ["مطاعم بنغازي", "دليل المأكولات", "تقييمات المطاعم"]
+                },
+                // لبدة الأثرية - المعالم السياحية
+                {
+                    id: 41,
+                    cityId: 4,
+                    topicId: 3,
+                    question: "ما هي أهم المعالم في لبدة الأثرية؟",
+                    answerAr: "تضم لبدة الأثرية العديد من المعالم المهمة مثل المسرح الروماني، قوس سبتيموس سيفيروس، السوق الروماني، الحمامات البيزنطية، والشارع المعمد. تعتبر من أهم المواقع الأثرية الرومانية في العالم.",
+                    answerEn: "Leptis Magna contains many important landmarks such as the Roman Theater, Arch of Septimius Severus, Roman Market, Byzantine Baths, and the Colonnaded Street. It is considered one of the most important Roman archaeological sites in the world.",
+                    links: ["موقع اليونسكو", "دليل الزوار", "صور لبدة الأثرية"]
+                }
+            ];
+            
+            // عناصر DOM
+            const citiesContainer = document.getElementById('citiesContainer');
+            const topicsContainer = document.getElementById('topicsContainer');
+            const questionsContainer = document.getElementById('questionsContainer');
+            const searchInput = document.getElementById('searchInput');
+            const searchBtn = document.getElementById('searchBtn');
+            const cityFilter = document.getElementById('cityFilter');
+            const filterButtons = document.querySelectorAll('.btn-filter');
+            const backToCitiesBtn = document.getElementById('backToCities');
+            const exploreBtn = document.getElementById('exploreBtn');
+            const modal = document.getElementById('questionModal');
+            const modalCloseBtn = document.getElementById('modalCloseBtn');
+            const modalTabs = document.querySelectorAll('.modal-tab');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav');
+            
+            // تهيئة التطبيق
+            function initApp() {
+                renderCities(citiesData);
+                renderTopics(topicsData);
+                setupEventListeners();
+                updateStatistics();
+            }
+            
+            // عرض المدن
+            function renderCities(cities) {
+                citiesContainer.innerHTML = '';
+                
+                cities.forEach(city => {
+                    const cityCard = document.createElement('div');
+                    cityCard.className = 'city-card';
+                    cityCard.dataset.id = city.id;
+                    cityCard.dataset.filter = city.filter;
+                    
+                    cityCard.innerHTML = `
+                        <div class="city-card-header">
+                            <i class="${city.icon}"></i>
+                            <div class="city-card-tag">${city.tag}</div>
+                        </div>
+                        <div class="city-card-body">
+                            <h3>${city.name}</h3>
+                            <p>${city.description}</p>
+                            <div class="city-stats">
+                                <div class="city-stat">
+                                    <i class="fas fa-list"></i>
+                                    <div class="number">${city.topics}</div>
+                                    <div class="label">موضوع</div>
+                                </div>
+                                <div class="city-stat">
+                                    <i class="fas fa-question-circle"></i>
+                                    <div class="number">${city.questions}</div>
+                                    <div class="label">سؤال</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    cityCard.addEventListener('click', () => showCityTopics(city.id, city.name));
+                    citiesContainer.appendChild(cityCard);
+                });
+            }
+            
+            // عرض المواضيع
+            function renderTopics(topics) {
+                topicsContainer.innerHTML = '';
+                
+                topics.forEach(topic => {
+                    const topicCard = document.createElement('div');
+                    topicCard.className = 'topic-card';
+                    topicCard.dataset.id = topic.id;
+                    
+                    topicCard.innerHTML = `
+                        <div class="topic-icon">
+                            <i class="${topic.icon}"></i>
+                        </div>
+                        <h3>${topic.name}</h3>
+                        <p>${topic.description}</p>
+                    `;
+                    
+                    topicCard.addEventListener('click', () => {
+                        // عندما يتم النقر على موضوع، انتقل إلى قسم المدن
+                        document.getElementById('cities').scrollIntoView({ behavior: 'smooth' });
+                        // إظهار رسالة
+                        alert(`اختر مدينة لرؤية معلومات ${topic.name} الخاصة بها`);
+                    });
+                    
+                    topicsContainer.appendChild(topicCard);
+                });
+            }
+            
+            // عرض مواضيع مدينة محددة
+            function showCityTopics(cityId, cityName) {
+                // إخفاء قسم المدن وإظهار قسم الأسئلة
+                document.getElementById('cities').style.display = 'none';
+                document.getElementById('topics').style.display = 'none';
+                document.getElementById('search').style.display = 'none';
+                document.getElementById('questions').style.display = 'block';
+                
+                // تحديث العناوين
+                document.getElementById('currentCityTitle').innerHTML = `<i class="fas fa-city"></i> ${cityName}`;
+                document.getElementById('currentTopicTitle').textContent = 'اختر موضوعاً لعرض المعلومات';
+                
+                // عرض المواضيع الخاصة بالمدينة
+                questionsContainer.innerHTML = '';
+                
+                topicsData.forEach(topic => {
+                    const questionCard = document.createElement('div');
+                    questionCard.className = 'question-card';
+                    questionCard.dataset.cityId = cityId;
+                    questionCard.dataset.topicId = topic.id;
+                    
+                    // حساب عدد الأسئلة لهذه المدينة والموضوع
+                    const questionCount = questionsData.filter(q => q.cityId === cityId && q.topicId === topic.id).length;
+                    
+                    questionCard.innerHTML = `
+                        <h3><i class="${topic.icon}"></i> ${topic.name}</h3>
+                        <p>${topic.description}</p>
+                        <div class="question-tags">
+                            <div class="question-tag">${questionCount} سؤال</div>
+                            <div class="question-tag">${cityName}</div>
+                        </div>
+                    `;
+                    
+                    questionCard.addEventListener('click', () => showQuestions(cityId, topic.id, cityName, topic.name));
+                    questionsContainer.appendChild(questionCard);
+                });
+                
+                // التمرير إلى القسم
+                document.getElementById('questions').scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // عرض الأسئلة لمدينة وموضوع محددين
+            function showQuestions(cityId, topicId, cityName, topicName) {
+                // تحديث العناوين
+                document.getElementById('currentCityTitle').innerHTML = `<i class="fas fa-city"></i> ${cityName}`;
+                document.getElementById('currentTopicTitle').innerHTML = `<i class="${topicsData.find(t => t.id === topicId).icon}"></i> ${topicName}`;
+                
+                // تصفية الأسئلة
+                const filteredQuestions = questionsData.filter(q => q.cityId === cityId && q.topicId === topicId);
+                
+                // إذا لم تكن هناك أسئلة، إنشاء بعض الأسئلة الافتراضية
+                if (filteredQuestions.length === 0) {
+                    questionsContainer.innerHTML = '';
+                    
+                    // إنشاء 3 أسئلة افتراضية
+                    for (let i = 1; i <= 3; i++) {
+                        const questionCard = document.createElement('div');
+                        questionCard.className = 'question-card';
+                        questionCard.dataset.id = `temp-${i}`;
+                        
+                        const questionTexts = [
+                            `ما هي أفضل ${topicName.toLowerCase()} في ${cityName}؟`,
+                            `ما هو متوسط تكلفة ${topicName.toLowerCase()} في ${cityName}؟`,
+                            `ما هي نصائحك حول ${topicName.toLowerCase()} في ${cityName}؟`
+                        ];
+                        
+                        questionCard.innerHTML = `
+                            <h3><i class="fas fa-question-circle"></i> ${questionTexts[i-1]}</h3>
+                            <p>اضغط لعرض الإجابة والمعلومات المفيدة حول هذا السؤال.</p>
+                            <div class="question-tags">
+                                <div class="question-tag">${cityName}</div>
+                                <div class="question-tag">${topicName}</div>
+                            </div>
+                        `;
+                        
+                        questionCard.addEventListener('click', () => showQuestionModal({
+                            id: `temp-${i}`,
+                            question: questionTexts[i-1],
+                            answerAr: `هذه إجابة نموذجية للسؤال عن ${topicName} في ${cityName}. يمكن إضافة معلومات مفصلة هنا.`,
+                            answerEn: `This is a sample answer about ${topicName} in ${cityName}. Detailed information can be added here.`,
+                            links: ["رابط مفيد 1", "رابط مفيد 2", "رابط مفيد 3"]
+                        }));
+                        
+                        questionsContainer.appendChild(questionCard);
+                    }
+                } else {
+                    // عرض الأسئلة الحقيقية
+                    questionsContainer.innerHTML = '';
+                    
+                    filteredQuestions.forEach(question => {
+                        const questionCard = document.createElement('div');
+                        questionCard.className = 'question-card';
+                        questionCard.dataset.id = question.id;
+                        
+                        questionCard.innerHTML = `
+                            <h3><i class="fas fa-question-circle"></i> ${question.question}</h3>
+                            <p>اضغط لعرض الإجابة والمعلومات المفيدة حول هذا السؤال.</p>
+                            <div class="question-tags">
+                                <div class="question-tag">${cityName}</div>
+                                <div class="question-tag">${topicName}</div>
+                            </div>
+                        `;
+                        
+                        questionCard.addEventListener('click', () => showQuestionModal(question));
+                        questionsContainer.appendChild(questionCard);
+                    });
+                }
+                
+                // التمرير إلى الأعلى
+                questionsContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // إظهار نافذة السؤال
+            function showQuestionModal(question) {
+                document.getElementById('modalQuestionTitle').textContent = question.question;
+                document.getElementById('modalAnswerAr').textContent = question.answerAr;
+                document.getElementById('modalAnswerEn').textContent = question.answerEn;
+                
+                // تحديث الروابط
+                const linksContainer = document.getElementById('modalLinks');
+                linksContainer.innerHTML = '';
+                
+                question.links.forEach(link => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = '#';
+                    linkElement.className = 'link-item';
+                    linkElement.innerHTML = `<i class="fas fa-external-link-alt"></i> ${link}`;
+                    linksContainer.appendChild(linkElement);
+                });
+                
+                // إظهار النافذة
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // إغلاق نافذة السؤال
+            function closeQuestionModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            // تصفية المدن
+            function filterCities() {
+                const filterValue = cityFilter.value.toLowerCase();
+                const activeFilter = document.querySelector('.btn-filter.active').dataset.filter;
+                
+                const filteredCities = citiesData.filter(city => {
+                    const matchesSearch = city.name.includes(filterValue) || 
+                                          city.description.includes(filterValue) ||
+                                          city.tag.includes(filterValue);
+                    const matchesFilter = activeFilter === 'all' || city.filter === activeFilter;
+                    
+                    return matchesSearch && matchesFilter;
+                });
+                
+                renderCities(filteredCities);
+            }
+            
+            // البحث في المحتوى
+            function searchContent() {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                const searchAr = document.getElementById('searchAr').checked;
+                const searchEn = document.getElementById('searchEn').checked;
+                
+                if (!searchTerm) {
+                    document.getElementById('searchResults').innerHTML = `
+                        <div class="no-results">
+                            <i class="fas fa-search"></i>
+                            <p>استخدم شريط البحث للعثور على المعلومات السياحية</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // البحث في الأسئلة
+                const searchResults = questionsData.filter(question => {
+                    const matchesAr = searchAr && (
+                        question.question.toLowerCase().includes(searchTerm) ||
+                        question.answerAr.toLowerCase().includes(searchTerm)
+                    );
+                    
+                    const matchesEn = searchEn && (
+                        question.answerEn.toLowerCase().includes(searchTerm)
+                    );
+                    
+                    return matchesAr || matchesEn;
+                });
+                
+                const resultsContainer = document.getElementById('searchResults');
+                
+                if (searchResults.length === 0) {
+                    resultsContainer.innerHTML = `
+                        <div class="no-results">
+                            <i class="fas fa-search-minus"></i>
+                            <p>لم يتم العثور على نتائج لـ "${searchInput.value}"</p>
+                            <p>حاول البحث بكلمات مختلفة أو تحقق من خيارات البحث</p>
+                        </div>
+                    `;
+                } else {
+                    resultsContainer.innerHTML = '';
+                    
+                    searchResults.forEach(result => {
+                        const city = citiesData.find(c => c.id === result.cityId);
+                        const topic = topicsData.find(t => t.id === result.topicId);
+                        
+                        const resultElement = document.createElement('div');
+                        resultElement.className = 'question-card';
+                        resultElement.innerHTML = `
+                            <h3><i class="fas fa-search"></i> ${result.question}</h3>
+                            <p>${result.answerAr.substring(0, 150)}...</p>
+                            <div class="question-tags">
+                                <div class="question-tag">${city.name}</div>
+                                <div class="question-tag">${topic.name}</div>
+                                <div class="question-tag">نتيجة بحث</div>
+                            </div>
+                        `;
+                        
+                        resultElement.addEventListener('click', () => {
+                            showQuestionModal(result);
+                            // إخفاء نتائج البحث
+                            document.getElementById('searchResults').innerHTML = `
+                                <div class="no-results">
+                                    <i class="fas fa-search"></i>
+                                    <p>استخدم شريط البحث للعثور على المزيد من المعلومات</p>
+                                </div>
+                            `;
+                            searchInput.value = '';
+                        });
+                        
+                        resultsContainer.appendChild(resultElement);
+                    });
+                    
+                    // إضافة عنوان النتائج
+                    const title = document.createElement('h3');
+                    title.textContent = `نتائج البحث (${searchResults.length} نتيجة)`;
+                    title.style.color = 'var(--primary-blue)';
+                    title.style.marginBottom = '20px';
+                    resultsContainer.prepend(title);
+                }
+            }
+            
+            // تحديث الإحصائيات
+            function updateStatistics() {
+                document.getElementById('statCities').textContent = citiesData.length;
+                document.getElementById('statTopics').textContent = topicsData.length;
+                document.getElementById('statQuestions').textContent = questionsData.length + 18; // + الأسئلة الافتراضية
+                document.getElementById('statLinks').textContent = questionsData.length * 3;
+            }
+            
+            // إعداد مستمعي الأحداث
+            function setupEventListeners() {
+                // تصفية المدن
+                cityFilter.addEventListener('input', filterCities);
+                
+                // أزرار التصفية
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        this.classList.add('active');
+                        filterCities();
+                    });
+                });
+                
+                // زر البحث
+                searchBtn.addEventListener('click', searchContent);
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        searchContent();
+                    }
+                });
+                
+                // زر العودة إلى المدن
+                backToCitiesBtn.addEventListener('click', function() {
+                    document.getElementById('cities').style.display = 'block';
+                    document.getElementById('topics').style.display = 'block';
+                    document.getElementById('search').style.display = 'block';
+                    document.getElementById('questions').style.display = 'none';
+                    
+                    // التمرير إلى قسم المدن
+                    document.getElementById('cities').scrollIntoView({ behavior: 'smooth' });
+                });
+                
+                // زر ابدأ الرحلة
+                exploreBtn.addEventListener('click', function() {
+                    document.getElementById('cities').scrollIntoView({ behavior: 'smooth' });
+                });
+                
+                // إغلاق نافذة السؤال
+                modalCloseBtn.addEventListener('click', closeQuestionModal);
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeQuestionModal();
+                    }
+                });
+                
+                // تبديل علامات التبويب في نافذة السؤال
+                modalTabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        const lang = this.dataset.lang;
+                        
+                        // تحديث التبويب النشط
+                        modalTabs.forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // إظهار المحتوى المناسب
+                        document.querySelectorAll('.modal-tab-content').forEach(content => {
+                            content.classList.remove('active');
+                        });
+                        document.getElementById(`tab${lang.charAt(0).toUpperCase() + lang.slice(1)}`).classList.add('active');
+                    });
+                });
+                
+                // قائمة الجوال
+                mobileMenuBtn.addEventListener('click', function() {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                });
+                
+                // التنقل السلس
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                            
+                            // تحديث القائمة النشطة
+                            document.querySelectorAll('.nav a').forEach(link => {
+                                link.classList.remove('active');
+                            });
+                            this.classList.add('active');
+                            
+                            // إغلاق قائمة الجوال إذا كانت مفتوحة
+                            if (window.innerWidth <= 900) {
+                                nav.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+                
+                // إغلاق القائمة عند النقر خارجها (للجوال)
+                document.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 900 && 
+                        !nav.contains(e.target) && 
+                        !mobileMenuBtn.contains(e.target) &&
+                        nav.style.display === 'flex') {
+                        nav.style.display = 'none';
+                    }
+                });
+                
+                // تحديث القائمة النشطة عند التمرير
+                window.addEventListener('scroll', function() {
+                    const sections = document.querySelectorAll('section');
+                    const navLinks = document.querySelectorAll('.nav a');
+                    
+                    let current = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.clientHeight;
+                        if (scrollY >= (sectionTop - 200)) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+                    
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${current}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+            }
+            
+            // بدء التطبيق
+            initApp();
+        });
+    </script>
 </body>
 </html>
